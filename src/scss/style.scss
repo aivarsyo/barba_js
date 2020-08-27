@@ -5,7 +5,92 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+
 body{
     font-family: 'Ginto';
 }
+
+.navbar{
+	.container-fluid{
+		a{
+			img{
+				@extend .img-fluid;
+				width: 50px;
+			}
+		}
+	}
+}
+
+a.nav-link:hover{
+	color: red !important;
+}
+
+.col{
+	@extend .mt-5;
+
+	img{
+		width: 30vw;
+		max-width: 400px;
+		@extend .mx-auto, .d-block;
+	}
+}
+
+.mainHome > h1{
+ margin: 5vw;
+}
+
+.row{
+	@extend  .align-items-center;
+}
+
+.videos{
+	@extend .mt-5;
+}
+
+.link-primary{
+	text-align: center;
+	font-size: 30px;
+	@extend .mt-5;
+}
+
+/* Slide */
+
+.slide-enter{
+    transform: translateX(100%);
+  }
+  .slide-enter-to{
+    transform: translateX(0);
+  }
+  .slide-leave-to{
+    transform: translateX(-100%);
+  }
+  .slide-enter-active,
+  .slide-leave-active{
+    transition: transform 1s ease;
+  }
+  .slide-leave-active{
+    position: absolute;
+    z-index: 2;
+  }
+  
+  /* Slide-reverse */
+  
+  .slide-reverse-enter{
+    transform: translateX(-100%);
+  }
+  .slide-reverse-leave,
+  .slide-reverse-enter-to{
+    transform: translateX(0);
+  }
+  .slide-reverse-leave-to{
+    transform: translateX(100%);
+  }
+  .slide-reverse-enter-active,
+  .slide-reverse-leave-active{
+    transition: transform 1s ease;
+  }
+  .slide-reverse-leave-active{
+    position: absolute;
+    z-index: 2;
+  }
 

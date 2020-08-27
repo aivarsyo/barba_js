@@ -102,6 +102,11 @@ module.exports = {
             filename: "./index.html"
         }),
 
+        new HtmlWebPackPlugin({
+            template: "./src/page2.html",
+            filename: "./page2.html"
+        }),
+
         new MiniCssExtractPlugin({
 			filename: './assets/css/[name].' + PACKAGE.version + '.css',
 			chunkFilename: './assets/css/[id].[hash].css'
