@@ -1,0 +1,56 @@
+{
+  "name": "folder_name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/index.js",
+  "scripts": {
+    "switch": "npm install && npm audit fix && npm rebuild node-sass",
+    "start": "webpack-dev-server --open --mode=development",
+    "build": "webpack --mode=production && gulp build",
+    "build-patch": "npm version patch --force && webpack --mode=production && gulp build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie >= 11",
+    "iOS >= 7"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.1",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-inject-string": "^1.1.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/css": "^2.1.15",
+    "bootstrap": "^5.0.0-alpha1",
+    "gsap": "^3.5.0",
+    "lodash": "^4.17.20",
+    "popper.js": "^1.16.1"
+  }
+  
+}

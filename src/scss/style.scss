@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Ginto';
+	src: url('../fonts/GintoNordTrial-Regular.woff') format('woff');
+}
+
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    font-family: 'Ginto';
+}
+
