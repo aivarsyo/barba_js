@@ -11,6 +11,10 @@ body{
 }
 
 .navbar{
+
+  //position: fixed;
+  //z-index: 1;
+
 	.container-fluid{
 		a{
 			img{
@@ -52,45 +56,4 @@ a.nav-link:hover{
 	font-size: 30px;
 	@extend .mt-5;
 }
-
-/* Slide */
-
-.slide-enter{
-    transform: translateX(100%);
-  }
-  .slide-enter-to{
-    transform: translateX(0);
-  }
-  .slide-leave-to{
-    transform: translateX(-100%);
-  }
-  .slide-enter-active,
-  .slide-leave-active{
-    transition: transform 1s ease;
-  }
-  .slide-leave-active{
-    position: absolute;
-    z-index: 2;
-  }
-  
-  /* Slide-reverse */
-  
-  .slide-reverse-enter{
-    transform: translateX(-100%);
-  }
-  .slide-reverse-leave,
-  .slide-reverse-enter-to{
-    transform: translateX(0);
-  }
-  .slide-reverse-leave-to{
-    transform: translateX(100%);
-  }
-  .slide-reverse-enter-active,
-  .slide-reverse-leave-active{
-    transition: transform 1s ease;
-  }
-  .slide-reverse-leave-active{
-    position: absolute;
-    z-index: 2;
-  }
 
