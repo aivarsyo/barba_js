@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 1</title>
 </head>
+
 <body data-barba="wrapper">
 
   <!-- --- transition screen to home --- -->
 
   <div class="load__container">
     <div class="load__container__screen"></div>
-</div>
+  </div>
 
-    <!-- --- navigation --- -->
+  <!-- --- navigation --- -->
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="./assets/images/Bootstrap_logo.svg" alt="Logo"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="page2.html">Page2</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Photos</a>
-              </li>
-            </ul>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./assets/images/Bootstrap_logo.svg" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="page2.html">Page2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Photos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main data-barba="container" data-barba-namespace="home" class="mainHome">
+
+    <!-- --- content --- -->
+
+
+
+    <section class="container animate-this">
+
+      <div class="row">
+        <div class="col-8">
+          <h1>Lorem ipsum dolor sit amet</h1>
+        </div>
+        <div class="col">
+          <a href="page2.html" class="link-primary">Go to Page 2</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+            Vivamus arcu felis bibendum ut tristique. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit
+            eget.
+            Nec nam aliquam sem et tortor. Etiam erat velit scelerisque in dictum non consectetur. Ornare massa eget
+            egestas purus.
+            Malesuada nunc vel risus commodo viverra. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. </p>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+            Vivamus arcu felis bibendum ut tristique. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit
+            eget.
+            Nec nam aliquam sem et tortor. Etiam erat velit scelerisque in dictum non consectetur.
+            Ornare massa eget egestas purus. Malesuada nunc vel risus commodo viverra.
+            Nisl nisi scelerisque eu ultrices vitae auctor eu augue. </p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/600/400" alt="">
+        </div>
+      </div>
+
+      <!-- --- videos --- -->
+
+      <div class="row videos">
+        <div class="col">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/I7CfaDYzTVM" title="YouTube video"
+              allowfullscreen></iframe>
           </div>
         </div>
-      </nav>
-
-    <main data-barba="container" data-barba-namespace="home" class="mainHome">
-
-        <!-- --- content --- -->
-
-        
-
-        <section class="container animate-this">
-
-            <div class="row">
-                <div class="col-8">
-                    <h1>Lorem ipsum dolor sit amet</h1>
-                </div>
-                <div class="col">
-                    <a href="page2.html" class="link-primary">Go to Page 2</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <img src="https://picsum.photos/400/500" alt="">
-                </div>
-                <div class="col">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Vivamus arcu felis bibendum ut tristique. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. 
-                        Nec nam aliquam sem et tortor. Etiam erat velit scelerisque in dictum non consectetur. Ornare massa eget egestas purus. 
-                        Malesuada nunc vel risus commodo viverra. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. </p>
-                    </div>
-                </div>
-
-            
-                <div class="row">
-                    <div class="col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Vivamus arcu felis bibendum ut tristique. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. 
-                            Nec nam aliquam sem et tortor. Etiam erat velit scelerisque in dictum non consectetur. 
-                            Ornare massa eget egestas purus. Malesuada nunc vel risus commodo viverra. 
-                            Nisl nisi scelerisque eu ultrices vitae auctor eu augue. </p>
-                    </div>
-                    <div class="col">
-                        <img src="https://picsum.photos/600/400" alt="">
-                    </div>
-                </div>
-
-<!-- --- videos --- -->
-
-                <div class="row videos">
-                    <div class="col">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/I7CfaDYzTVM" title="YouTube video" allowfullscreen></iframe>
-                          </div>
-                    </div>
-                   <!--  <div class="col">
+        <!--  <div class="col">
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nu5mdN2JIwM" title="YouTube video" allowfullscreen></iframe>
                           </div>
                     </div> -->
-                </div>
-        
-            </section>
+      </div>
+
+    </section>
 
 
-    </main>
+  </main>
 </body>
+
 </html>

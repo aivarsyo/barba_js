@@ -5,7 +5,9 @@ const path = require('path')
 
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 
 
 
@@ -13,24 +15,21 @@ module.exports = {
 
 
     entry: './src/js/index.js',
-	output: {
-		filename: './assets/js/main.' + PACKAGE.version + '.js',
-		path: path.resolve(__dirname, './dist')
+    output: {
+        filename: './assets/js/main.' + PACKAGE.version + '.js',
+        path: path.resolve(__dirname, './dist')
     },
 
 
-    module:{
-        rules: [
-            {
+    module: {
+        rules: [{
                 test: /\.html$/,
-                use: [
-                    {
-                        loader: "html-loader",
-                        options: {
-                            minimize: true
-                        }
+                use: [{
+                    loader: "html-loader",
+                    options: {
+                        minimize: true
                     }
-                ]
+                }]
             },
 
             {
@@ -42,59 +41,55 @@ module.exports = {
             },
 
             {
-				test: /\.(sa|sc|c)ss$/,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							publicPath: './../../'
-						}
-					},
-					{
-						loader: 'css-loader',
-						options: {
-							importLoaders: 1
-						}
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-						}
-					},
-				],
-			},
+                test: /\.(sa|sc|c)ss$/,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: './../../'
+                        }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {}
+                    },
+                ],
+            },
 
             {
-				test: /\.(woff|woff2|eot|ttf)$/,
-				use: [{
-					loader: 'file-loader',
-					options: {
-						name: '[name].[ext]',
-						useRelativePath: true,
-						outputPath: "./assets/fonts/",
-					}
-				}]
+                test: /\.(woff|woff2|eot|ttf)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        useRelativePath: true,
+                        outputPath: "./assets/fonts/",
+                    }
+                }]
             },
-            
+
 
 
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                  {
+                use: [{
                     loader: 'file-loader',
                     options: {
-						name: '[name].[ext]',
-						useRelativePath: true,
-						outputPath: "./assets/images",
-					}
-                  },
-                ],
-              }
+                        name: '[name].[ext]',
+                        useRelativePath: true,
+                        outputPath: "./assets/images",
+                    }
+                }, ],
+            }
         ]
     },
-    
-    
+
+
 
     plugins: [
         new HtmlWebPackPlugin({
@@ -108,10 +103,10 @@ module.exports = {
         }),
 
         new MiniCssExtractPlugin({
-			filename: './assets/css/[name].' + PACKAGE.version + '.css',
-			chunkFilename: './assets/css/[id].[hash].css'
-		}),
-        
+            filename: './assets/css/[name].' + PACKAGE.version + '.css',
+            chunkFilename: './assets/css/[id].[hash].css'
+        }),
+
         new CleanWebpackPlugin()
     ]
 }

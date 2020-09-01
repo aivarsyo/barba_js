@@ -1,12 +1,17 @@
-const {series} 		= require('gulp');
-const {src, dest} = require('gulp');
+const {
+	series
+} = require('gulp');
+const {
+	src,
+	dest
+} = require('gulp');
 
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin')
 // const minify = require('gulp-minify');
-const postcss         	= require('gulp-postcss')
-const autoprefixer    	= require('autoprefixer')
-const cssnano         	= require('cssnano')
+const postcss = require('gulp-postcss')
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
 // const sass = require('gulp-sass');
 // sass.compiler = require('node-sass');
 // const concat = require('gulp-concat');
@@ -63,8 +68,13 @@ function compressImages() {
 	return gulp
 		.src('./dist/assets/images/*.*')
 		.pipe(imagemin([
-			imagemin.mozjpeg({quality: 70, progressive: true}),
-			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.mozjpeg({
+				quality: 70,
+				progressive: true
+			}),
+			imagemin.optipng({
+				optimizationLevel: 5
+			}),
 		]))
 		.pipe(gulp.dest('./dist/assets/images/'))
 }
@@ -107,7 +117,7 @@ function cssCompress() {
 
 
 // Default
-exports.default			= series(compressImages);
+exports.default = series(compressImages);
 
 // Scripts
-exports.build			= series(compressImages, cssAutoprefixer, cssCompress);
+exports.build = series(compressImages, cssAutoprefixer, cssCompress);
