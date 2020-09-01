@@ -8,30 +8,25 @@ import gsap from "gsap";
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 barba.use(barbaPrefetch);
-//import barbaCss from '@barba/css';
-//barba.use(barbaCss);
 
 // --- initialize ---
 
 window.addEventListener("DOMContentLoaded", init);
 
 function init(){
-  navSetup();
+  focusNav();
   barbaInit();
 }
 
 // --- *********** ---
 
-function navSetup(){
-
-  const navbarHeight = document.querySelector(".navbar").offsetHeight;
-
-  console.log(navbarHeight)
-
-  document.querySelector("main").style.marginTop = navbarHeight + "px";
-}
-
 const barbaInit = () => {
+
+  // Global hooks
+
+  barba.hooks.enter(() => {
+    focusNav();
+  });
 				
       barba.init({
 
@@ -45,18 +40,13 @@ const barbaInit = () => {
 
         name: 'slide',
         sync: true,
-  
-        leave: (data) => {
 
-          return gsap.to(data.current.container, {
-            duration: .5,
-            x: "-100vw",
-            ease: "power1.out",
-            opacity: 0
-          })
+        leave: (data) => {
+         pageTransitionLeave(data);
         },
   
         enter: (data) => {
+          //pageTransitionEnter(data);
 
           const tml = gsap.timeline();
 
@@ -87,10 +77,111 @@ const barbaInit = () => {
 
           return tml;
         },
+
+        once: () => {
+          contentAnimation();
+      },
         
-      }],
+      },
+
+/* --- animation to home --- */
+
+{
+  name: 'overlay',
+        to: {
+          namespace: [
+            'home'
+          ]
+        },
+
+  async leave (data) {
+      const done = this.async();
+
+      pageTransition(data);
+      await delay(300);
+      scrollToTopFast();
+      done();
+  },
+
+  async enter (data) {
+      contentAnimation();
+  },
+
+  async once () {
+      contentAnimation();
+  },
+},
+    ],
     });
   }
+
+  /* --- **************************** --- */
+
+  function pageTransitionLeave(data){
+    
+      gsap.to(data.current.container, {
+      duration: .5,
+      x: "-100vw",
+      ease: "power1.out",
+      opacity: 0
+    })
+  }
+
+  /* function pageTransitionEnter(data){
+
+    
+
+  } */
+
+function pageTransition(data) {
+    const tl = gsap.timeline();
+
+    tl.to(".load__container__screen", {
+        duration: .5,
+        width: "100%",
+        left: "0%",
+        ease: "Expo.easeInOut",
+    });
+
+    tl.to(".load__container__screen", {
+        duration: .5,
+        width: "100%",
+        left: "100%",
+        ease: "Expo.easeInOut",
+        delay: 0.3,
+    });
+    tl.set(".load__container__screen", { left: "-100%" });
+}
+
+function contentAnimation() {
+    const tl = gsap.timeline();
+    tl.from(".animate-this", 
+    { duration: 1, 
+      y: 30, 
+      opacity: 0, 
+      stagger: 0.4, 
+      delay: 0.2,
+    });
+}
+
+/* --- ************************* --- */
+
+
+  /* --- delay function --- */
+
+  function delay(n) {
+    n = n || 2000;
+    return new Promise((done) => {
+        setTimeout(() => {
+            done();
+        }, n);
+    });
+}
+
+/* --- ********************* --- */
+
+
+/* --- scroll to top after changing a page --- */
 
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -99,3 +190,34 @@ const barbaInit = () => {
       window.scrollTo(0, c - c / 4);
     }
   };
+
+  function scrollToTopFast(){
+
+    window.scrollTo(0, 0);
+  }
+
+  /* --- ************************* --- */
+
+
+ /*  --- focus the page which is clicked at the navigation --- */
+
+  function focusNav(){
+
+    const url = window.location.pathname;
+
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(){
+        document.querySelectorAll(".nav-link").forEach(navLink => {
+          if(navLink.href == this){
+              document.querySelectorAll(".nav-link").forEach(item => {
+              item.classList.remove("active");
+              })
+          navLink.classList.add("active");
+            }
+        })
+      })
+      
+    })
+  }
+
+  /* --- ************************* --- */
