@@ -24,7 +24,7 @@ const barbaInit = () => {
 
   // Global hooks
 
-  barba.hooks.enter(() => {
+  barba.hooks.after(() => {
     focusNav();
   });
 
@@ -52,7 +52,6 @@ const barbaInit = () => {
 
           tml.set(data.next.container, {
             y: -data.current.container.offsetHeight,
-            //opacity: 0
           })
 
           tml.from(data.next.container, {
@@ -65,14 +64,8 @@ const barbaInit = () => {
             }
           })
 
-          tml.to(data.next.container, {
-            opacity: 1
-
-          })
-
           tml.set(data.next.container, {
             y: 0
-
           })
 
           return tml;
@@ -99,7 +92,7 @@ const barbaInit = () => {
 
           pageTransition(data);
           await delay(300);
-          scrollToTopFast();
+          scrollToTop();
           done();
         },
 
@@ -185,17 +178,13 @@ function delay(n) {
 
 /* --- scroll to top after changing a page --- */
 
-const scrollToTop = () => {
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, c - c / 4);
-  }
-};
+function scrollToTop() {
 
-function scrollToTopFast() {
-
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
 }
 
 /* --- ************************* --- */
@@ -205,17 +194,35 @@ function scrollToTopFast() {
 
 function focusNav() {
 
-  const url = window.location.pathname;
+  const currentUrl = window.location.href;
+
+  const navbar = document.querySelector(".navbar");
+
+  const main = document.querySelector("main");
+
+  main.style.marginTop = navbar.offsetHeight + "px";
+
 
   document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function () {
+
+    link.addEventListener("click", function (e) {
+
       document.querySelectorAll(".nav-link").forEach(navLink => {
-        if (navLink.href == this) {
+
+        if (navLink.href == this.href) {
+          console.log(navLink.href)
+          console.log(this.href)
           document.querySelectorAll(".nav-link").forEach(item => {
             item.classList.remove("active");
           })
           navLink.classList.add("active");
+          e.preventDefault();
+          console.log(this)
+        } else {
+          scrollToTop();
         }
+
+
       })
     })
 

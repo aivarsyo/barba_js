@@ -11,9 +11,12 @@ body {
 }
 
 .navbar {
-
-	//position: fixed;
-	//z-index: 1;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 1;
+	background-color: white;
+	width: 100%;
 
 	.container-fluid {
 		a {
@@ -77,7 +80,7 @@ a.nav-link:hover {
 		padding-left: 0;
 		padding-right: 0;
 		padding-top: 0;
-		//background-color: white;
+		//background-color: red;
 		background-image: url(../assets/images/re-public.png);
 		background-position: center;
 		//background-size: contain;
